@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>570</width>
+    <height>416</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>NSMBW Hashing Toolbox</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="SymbolListWidget" name="symbolListTab">
+       <attribute name="title">
+        <string>Symbol List</string>
+       </attribute>
+      </widget>
+      <widget class="InvHashWidget" name="invHashTab">
+       <attribute name="title">
+        <string>Inverse Hash</string>
+       </attribute>
+       <attribute name="toolTip">
+        <string>Inverse Hash</string>
+       </attribute>
+      </widget>
+      <widget class="XORTrickWidget" name="xorTrickTab">
+       <attribute name="title">
+        <string>XOR trick</string>
+       </attribute>
+       <attribute name="toolTip">
+        <string>XOR trick</string>
+       </attribute>
+      </widget>
+      <widget class="KMPAttackWidget" name="kmpAttackTab">
+       <attribute name="title">
+        <string>KMP attack</string>
+       </attribute>
+       <attribute name="toolTip">
+        <string>Known middle part attack</string>
+       </attribute>
+      </widget>
+      <widget class="Z3AttackWidget" name="z3AttackTab">
+       <attribute name="title">
+        <string>Z3 attack</string>
+       </attribute>
+      </widget>
+      <widget class="DictionaryBruteWidget" name="dictBruteTab">
+       <attribute name="title">
+        <string>Dictionary brute force</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="submitSymbolBtn">
+      <property name="text">
+       <string>Submit symbol</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLineEdit" name="submitSymName"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>570</width>
+     <height>17</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>InvHashWidget</class>
+   <extends>QWidget</extends>
+   <header>invhashwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>XORTrickWidget</class>
+   <extends>QWidget</extends>
+   <header>xortrickwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KMPAttackWidget</class>
+   <extends>QWidget</extends>
+   <header>kmpattackwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DictionaryBruteWidget</class>
+   <extends>QWidget</extends>
+   <header>dictionarybrutewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SymbolListWidget</class>
+   <extends>QWidget</extends>
+   <header>symbollistwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Z3AttackWidget</class>
+   <extends>QWidget</extends>
+   <header>z3attackwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

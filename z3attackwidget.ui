@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Z3AttackWidget</class>
+ <widget class="QWidget" name="Z3AttackWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>411</width>
+    <height>383</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="3" column="0">
+    <widget class="QLabel" name="lblMinLen">
+     <property name="text">
+      <string>Minimum length</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="lblResults">
+     <property name="text">
+      <string>Results</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QSpinBox" name="minLen">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>50</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
+    <widget class="QGroupBox" name="gbHash2">
+     <property name="title">
+      <string>Hash 2</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="hash2Prefix"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lblH2Pre">
+        <property name="text">
+         <string>Prefix</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="hash2Suffix"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="lblH2Suff">
+        <property name="text">
+         <string>Suffix</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblH2Val">
+        <property name="text">
+         <string>Hash value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="chkH2Len">
+        <property name="text">
+         <string>Prefix length to guess</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="hash2Value"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QSpinBox" name="z3Timeout">
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::UpDownArrows</enum>
+     </property>
+     <property name="minimum">
+      <number>5</number>
+     </property>
+     <property name="maximum">
+      <number>3600</number>
+     </property>
+     <property name="value">
+      <number>10</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="lblZ3Timeout">
+     <property name="text">
+      <string>Z3 timeout (seconds)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLabel" name="lblMaxLen">
+     <property name="text">
+      <string>Maximum length</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QGroupBox" name="gbHash1">
+     <property name="title">
+      <string>Hash 1</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="3">
+       <widget class="QLineEdit" name="hash1Suffix"/>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="lblH1Suff">
+        <property name="text">
+         <string>Suffix</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="hash1Prefix"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lblH1Pre">
+        <property name="text">
+         <string>Prefix</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="hash1Value"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblH1Val">
+        <property name="text">
+         <string>Hash value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="chkH1Len">
+        <property name="text">
+         <string>Prefix length to guess</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QSpinBox" name="maxLen">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="value">
+      <number>10</number>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QPushButton" name="btnStartSearch">
+     <property name="text">
+      <string>Start search</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="2">
+    <widget class="QTextEdit" name="results">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

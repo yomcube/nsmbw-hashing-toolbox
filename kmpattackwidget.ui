@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KMPAttackWidget</class>
+ <widget class="QWidget" name="KMPAttackWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>587</width>
+    <height>379</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="gbSetup">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Setup</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="suffix1Input"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="lblSuffix2">
+        <property name="text">
+         <string>Known suffix 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QSpinBox" name="maxLength"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="lblSuffix1">
+        <property name="text">
+         <string>Known suffix 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLineEdit" name="hash2Input"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="lblAlphabet">
+        <property name="text">
+         <string>Alphabet</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="lblMinLen">
+        <property name="text">
+         <string>Minimum length</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblHash2">
+        <property name="text">
+         <string>Hash 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="lblPrefix2">
+        <property name="text">
+         <string>Known prefix 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lblPrefix1">
+        <property name="text">
+         <string>Known prefix 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QSpinBox" name="minLength"/>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLineEdit" name="suffix2Input"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="hash1Input"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="prefix1Input"/>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="lblMaxLen">
+        <property name="text">
+         <string>Maximum length</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="prefix2Input"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblHash1">
+        <property name="text">
+         <string>Hash 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0" colspan="3">
+       <widget class="QLineEdit" name="alphabetInput"/>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLabel" name="lblNumColls">
+        <property name="text">
+         <string>Number of collisions to find</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QLineEdit" name="numCollsInput"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="gbSummary">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Summary</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblPlainF1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Plaintext format hash 1:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lblPlainOut1">
+        <property name="text">
+         <string> (...)&lt;unknown&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblPlainF2">
+        <property name="text">
+         <string>Plaintext format hash 2:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="lblPlainOut2">
+        <property name="text">
+         <string> (...)&lt;unknown&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Start collision search</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
