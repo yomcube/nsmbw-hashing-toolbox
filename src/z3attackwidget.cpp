@@ -1,6 +1,8 @@
 #include "z3attackwidget.h"
 #include "ui_z3attackwidget.h"
 #include <QMessageBox>
+#include <QThread>
+#include <QTimer>
 #include "z3attackprocess.h"
 #include "hashing.h"
 
@@ -10,6 +12,7 @@ Z3AttackWidget::Z3AttackWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    z3Timer = new QTimer(this);
     connect(ui->btnStartSearch, &QPushButton::clicked, this, &Z3AttackWidget::beginZ3);
 }
 
@@ -38,15 +41,28 @@ void Z3AttackWidget::beginZ3() {
 
 void Z3AttackWidget::z3Iter() {
     Z3AttackProcess *z3Proc = new Z3AttackProcess(h1seed, h1goal, h2seed, h2goal, currLen);
-    z3Thread = new QThread();
+    z3Thread = new QThread(this);
     z3Proc->moveToThread(z3Thread);
     connect(z3Thread, &QThread::started, z3Proc, &Z3AttackProcess::z3Start);
     connect(z3Proc, &Z3AttackProcess::z3Finished, this, &Z3AttackWidget::z3IterDone);
     z3Thread->start();
+
+    alreadyDone = false;
+
+    z3Timer->singleShot(ui->z3Timeout->text().toUInt() * 1000, this, &Z3AttackWidget::z3Terminate);
+}
+
+void Z3AttackWidget::z3Terminate() {
+    if (!alreadyDone) {
+        z3Thread->terminate();
+        z3IterDone(QString("Timeout."));
+    }
 }
 
 void Z3AttackWidget::z3IterDone(QString res) {
-    ui->results->setText(ui->results->toPlainText() + "Length " + QString::number(currLen) + ":\n" + res);
+    alreadyDone = true;
+    z3Timer->stop();
+    ui->results->setText(ui->results->toPlainText() + "Length " + QString::number(currLen) + ":\n" + res + "\n");
     z3Thread->quit();
     currLen++;
     if (currLen <= maxLen) {
