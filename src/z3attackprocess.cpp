@@ -21,7 +21,7 @@ void Z3AttackProcess::z3Start() {
         z3::expr hash1 = c.bv_val(h1seed, 32);
         z3::expr hash2 = c.bv_val(h2seed, 32);
         for (int i = 0; i < len; i++) {
-            z3::expr ch = z3::zext(unkBV.extract(i * 8 + 7, i * 8), 32);
+            z3::expr ch = z3::zext(unkBV.extract(i * 8 + 7, i * 8), 32 - 8);
             hash1 = (hash1 * 33) ^ ch;
             hash2 = (hash2 * 33) ^ ch;
         }

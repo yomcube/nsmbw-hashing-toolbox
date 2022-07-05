@@ -6,43 +6,43 @@ QT = core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
-    dictionarybruteprocess.cpp \
-    dictionarybrutewidget.cpp \
-    hashing.cpp \
-    invhashwidget.cpp \
-    kmpattackwidget.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    symbollistmodel.cpp \
-    symbollistwidget.cpp \
-    xortrickwidget.cpp \
-    z3attackprocess.cpp \
-    z3attackwidget.cpp
+    src/dictionarybruteprocess.cpp \
+    src/dictionarybrutewidget.cpp \
+    src/hashing.cpp \
+    src/invhashwidget.cpp \
+    src/kmpattackwidget.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/symbollistmodel.cpp \
+    src/symbollistwidget.cpp \
+    src/xortrickwidget.cpp \
+    src/z3attackprocess.cpp \
+    src/z3attackwidget.cpp
 
 FORMS += \
-    dictionarybrutewidget.ui \
-    invhashwidget.ui \
-    kmpattackwidget.ui \
-    mainwindow.ui \
-    symbollistwidget.ui \
-    xortrickwidget.ui \
-    z3attackwidget.ui
+    src/dictionarybrutewidget.ui \
+    src/invhashwidget.ui \
+    src/kmpattackwidget.ui \
+    src/mainwindow.ui \
+    src/symbollistwidget.ui \
+    src/xortrickwidget.ui \
+    src/z3attackwidget.ui
 
 HEADERS += \
-    dictionarybruteprocess.h \
-    dictionarybrutewidget.h \
-    hashing.h \
-    invhashwidget.h \
-    kmpattackwidget.h \
-    mainwindow.h \
-    symbollistmodel.h \
-    symbollistwidget.h \
-    xortrickwidget.h \
-    z3attackprocess.h \
-    z3attackwidget.h
+    src/dictionarybruteprocess.h \
+    src/dictionarybrutewidget.h \
+    src/hashing.h \
+    src/invhashwidget.h \
+    src/kmpattackwidget.h \
+    src/mainwindow.h \
+    src/symbollistmodel.h \
+    src/symbollistwidget.h \
+    src/xortrickwidget.h \
+    src/z3attackprocess.h \
+    src/z3attackwidget.h
 
 RESOURCES += \
-    resources.qrc
+    src/resources.qrc
 
 unix|win32: LIBS += -L$$PWD/libs/z3/bin/ -llibz3
 

@@ -22,7 +22,7 @@ private slots:
 
 private:
     Ui::DictionaryBruteWidget *ui;
-    QThread *bruteforceThread;
+    QThread *bruteforceThread = nullptr;
 };
 
 #endif // DICTIONARYBRUTEWIDGET_H
