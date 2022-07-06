@@ -160,6 +160,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>prefixMang</tabstop>
+  <tabstop>suffixMang</tabstop>
+  <tabstop>prefixDem</tabstop>
+  <tabstop>suffixDem</tabstop>
+  <tabstop>mangHash</tabstop>
+  <tabstop>demHash</tabstop>
+  <tabstop>btnGo</tabstop>
+  <tabstop>results</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

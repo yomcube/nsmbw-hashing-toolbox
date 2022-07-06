@@ -189,6 +189,21 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>hash1Value</tabstop>
+  <tabstop>hash1Prefix</tabstop>
+  <tabstop>hash1Suffix</tabstop>
+  <tabstop>chkH1Len</tabstop>
+  <tabstop>hash2Value</tabstop>
+  <tabstop>hash2Prefix</tabstop>
+  <tabstop>hash2Suffix</tabstop>
+  <tabstop>chkH2Len</tabstop>
+  <tabstop>z3Timeout</tabstop>
+  <tabstop>minLen</tabstop>
+  <tabstop>maxLen</tabstop>
+  <tabstop>btnStartSearch</tabstop>
+  <tabstop>results</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

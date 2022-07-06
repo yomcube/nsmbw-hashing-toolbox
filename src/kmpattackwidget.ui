@@ -200,6 +200,19 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>hash1Input</tabstop>
+  <tabstop>prefix1Input</tabstop>
+  <tabstop>suffix1Input</tabstop>
+  <tabstop>hash2Input</tabstop>
+  <tabstop>prefix2Input</tabstop>
+  <tabstop>suffix2Input</tabstop>
+  <tabstop>minLength</tabstop>
+  <tabstop>maxLength</tabstop>
+  <tabstop>numCollsInput</tabstop>
+  <tabstop>alphabetInput</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
