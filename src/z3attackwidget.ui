@@ -90,13 +90,13 @@
       <enum>QAbstractSpinBox::UpDownArrows</enum>
      </property>
      <property name="minimum">
-      <number>5</number>
+      <number>1</number>
      </property>
      <property name="maximum">
       <number>3600</number>
      </property>
      <property name="value">
-      <number>10</number>
+      <number>30</number>
      </property>
     </widget>
    </item>

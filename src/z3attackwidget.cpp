@@ -13,6 +13,8 @@ Z3AttackWidget::Z3AttackWidget(QWidget *parent) :
     ui->setupUi(this);
 
     z3Timer = new QTimer(this);
+    z3Timer->setSingleShot(true);
+    connect(z3Timer, &QTimer::timeout, this, &Z3AttackWidget::z3Terminate);
     connect(ui->btnStartSearch, &QPushButton::clicked, this, &Z3AttackWidget::beginZ3);
 }
 
@@ -48,8 +50,7 @@ void Z3AttackWidget::z3Iter() {
     z3Thread->start();
 
     alreadyDone = false;
-
-    z3Timer->singleShot(ui->z3Timeout->text().toUInt() * 1000, this, &Z3AttackWidget::z3Terminate);
+    z3Timer->start(ui->z3Timeout->text().toUInt() * 1000);
 }
 
 void Z3AttackWidget::z3Terminate() {
