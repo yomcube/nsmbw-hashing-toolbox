@@ -14,19 +14,29 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="5" column="0">
-    <widget class="QTextEdit" name="results">
-     <property name="readOnly">
+   <item row="8" column="0">
+    <widget class="QProgressBar" name="progressBar">
+     <property name="enabled">
       <bool>true</bool>
+     </property>
+     <property name="value">
+      <number>0</number>
      </property>
     </widget>
    </item>
-   <item row="0" column="0">
+   <item row="5" column="0">
     <widget class="QGroupBox" name="gbSymInfo">
      <property name="title">
       <string>Symbol information</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblMangHash">
+        <property name="text">
+         <string>Mangled hash</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0" colspan="2">
        <widget class="QGroupBox" name="gbMangled">
         <property name="title">
@@ -69,67 +79,21 @@
         </layout>
        </widget>
       </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QGroupBox" name="gbDemangled">
-        <property name="title">
-         <string>Demangled symbol</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="0">
-          <widget class="QLabel" name="lblPrefix2">
-           <property name="text">
-            <string>Known prefix</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="lblSuffix2">
-           <property name="text">
-            <string>Known suffix</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLineEdit" name="prefixDem"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="lblBFPlaceholder2">
-           <property name="text">
-            <string>&lt;Bruteforce value&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLineEdit" name="suffixDem"/>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="lblDemHash">
-        <property name="text">
-         <string>Demangled hash</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lblMangHash">
-        <property name="text">
-         <string>Mangled hash</string>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="0">
        <widget class="QLineEdit" name="mangHash"/>
       </item>
       <item row="3" column="1">
        <widget class="QLineEdit" name="demHash"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QRadioButton" name="radUseDem">
+        <property name="text">
+         <string>Demangled hash</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -141,20 +105,17 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QPushButton" name="btnGo">
-     <property name="text">
-      <string>Go!</string>
+   <item row="7" column="0">
+    <widget class="QTextEdit" name="results">
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
    <item row="6" column="0">
-    <widget class="QProgressBar" name="progressBar">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="value">
-      <number>0</number>
+    <widget class="QPushButton" name="btnGo">
+     <property name="text">
+      <string>Go!</string>
      </property>
     </widget>
    </item>
@@ -163,11 +124,8 @@
  <tabstops>
   <tabstop>prefixMang</tabstop>
   <tabstop>suffixMang</tabstop>
-  <tabstop>prefixDem</tabstop>
-  <tabstop>suffixDem</tabstop>
   <tabstop>mangHash</tabstop>
   <tabstop>demHash</tabstop>
-  <tabstop>btnGo</tabstop>
   <tabstop>results</tabstop>
  </tabstops>
  <resources/>

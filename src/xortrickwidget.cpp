@@ -42,27 +42,29 @@ void XORTrickWidget::updateResult() {
         // figure out possibilities
         QString currRes = "XOR = " + QString::number(runningXOR & 0b11111) + " -> ";
 
+        QStringList results = QStringList();
+
         if (runningXOR % 32 == 0) {
-            currRes += "(none), ";
+            results.append("(none)");
         }
 
         for (char c0 = '1'; c0 <= '9'; c0++) {
             if ((runningXOR ^ c0) % 32 == 0) {
-                currRes += QString(c0) + ", ";
+                results.append(QString(c0));
             }
         }
         for (char c0 = '1'; c0 <= '9'; c0++) {
             for (char c1 = '0'; c1 <= '9'; c1++) {
                 if ((runningXOR ^ c0 ^ c1) % 32 == 0) {
-                    currRes += QString(c0) + QString(c1) + ", ";
+                    results.append(QString(c0) + QString(c1));
                 }
             }
         }
 
-        currRes.chop(2);
-
-        if (currRes.size() == 0) {
-            currRes = "(no solutions found for 0 < len(className) < 100)";
+        if (results.size() == 0) {
+            currRes += "(no solutions for 0 < len(className) < 100)";
+        } else {
+            currRes += results.join(", ");
         }
 
         resStr += currRes + "\n";

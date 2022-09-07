@@ -14,6 +14,7 @@ DictionaryBruteWidget::DictionaryBruteWidget(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->btnGo, &QPushButton::clicked, this, &DictionaryBruteWidget::beginBruteforce);
+    connect(ui->radUseDem, &QRadioButton::clicked, this, &DictionaryBruteWidget::setDemInputEnabledDisabled);
 }
 
 DictionaryBruteWidget::~DictionaryBruteWidget() {
@@ -24,14 +25,24 @@ DictionaryBruteWidget::~DictionaryBruteWidget() {
 }
 
 void DictionaryBruteWidget::beginBruteforce() {
+
+    ui->prefixMang->setEnabled(false);
+    ui->suffixMang->setEnabled(false);
+    ui->radUseDem->setEnabled(false);
+    ui->mangHash->setEnabled(false);
+    ui->demHash->setEnabled(false);
+    ui->btnGo->setEnabled(false);
+
     uint32_t seedMang = Hashing::hash(ui->prefixMang->text(), 0x1505);
     uint32_t goalMang = Hashing::inverse_hash(ui->mangHash->text().toUInt(nullptr, 16), ui->suffixMang->text());
-    uint32_t seedDem = Hashing::hash(ui->prefixDem->text(), 0x1505);
-    uint32_t goalDem = Hashing::inverse_hash(ui->demHash->text().toUInt(nullptr, 16), ui->suffixDem->text());
 
     ui->results->setText("");
 
-    DictionaryBruteProcess *brute = new DictionaryBruteProcess(seedMang, goalMang, seedDem, goalDem);
+    DictionaryBruteProcess *brute = new DictionaryBruteProcess(
+        seedMang, goalMang,
+        ui->radUseDem->isChecked(), ui->demHash->text().toUInt(nullptr, 16),
+        ui->prefixMang->text(), ui->suffixMang->text()
+    );
     bruteforceThread = new QThread();
     brute->moveToThread(bruteforceThread);
     connect(bruteforceThread, &QThread::started, brute, &DictionaryBruteProcess::startBruteforce);
@@ -40,18 +51,19 @@ void DictionaryBruteWidget::beginBruteforce() {
     bruteforceThread->start();
 }
 
+void DictionaryBruteWidget::setDemInputEnabledDisabled(bool checked) {
+    ui->demHash->setEnabled(checked);
+}
+
 void DictionaryBruteWidget::updateProgress(int prog) {
     ui->progressBar->setValue(prog);
 }
 
 void DictionaryBruteWidget::bruteforceEnded(QStringList res) {
-    QString prefixMang = ui->prefixMang->text();
-    QString suffixMang = ui->suffixMang->text();
-
     if (res.size() > 0) {
         QString resText = "";
         for (QString& entry : res) {
-            resText += prefixMang + entry + suffixMang + "\n";
+            resText += entry + "\n";
         }
         ui->results->setText(resText);
     } else {
@@ -59,6 +71,13 @@ void DictionaryBruteWidget::bruteforceEnded(QStringList res) {
     }
 
     ui->progressBar->setValue(100.0);
+
+    ui->prefixMang->setEnabled(true);
+    ui->suffixMang->setEnabled(true);
+    ui->radUseDem->setEnabled(true);
+    ui->mangHash->setEnabled(true);
+    ui->demHash->setEnabled(ui->radUseDem->isEnabled());
+    ui->btnGo->setEnabled(true);
 
     bruteforceThread->exit();
 }

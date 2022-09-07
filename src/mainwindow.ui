@@ -20,9 +20,9 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="SymbolListWidget" name="symbolListTab">
+      <widget class="DemangleWidget" name="demangleTab">
        <attribute name="title">
-        <string>Symbol List</string>
+        <string>Demangler</string>
        </attribute>
       </widget>
       <widget class="InvHashWidget" name="invHashTab">
@@ -111,15 +111,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>SymbolListWidget</class>
-   <extends>QWidget</extends>
-   <header>symbollistwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>Z3AttackWidget</class>
    <extends>QWidget</extends>
    <header>z3attackwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DemangleWidget</class>
+   <extends>QWidget</extends>
+   <header>demanglewidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

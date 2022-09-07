@@ -6,6 +6,7 @@ QT = core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
+    src/demanglewidget.cpp \
     src/dictionarybruteprocess.cpp \
     src/dictionarybrutewidget.cpp \
     src/hashing.cpp \
@@ -13,30 +14,29 @@ SOURCES += \
     src/kmpattackwidget.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/symbollistmodel.cpp \
-    src/symbollistwidget.cpp \
+    src/nvidia_demangler.cpp \
     src/xortrickwidget.cpp \
     src/z3attackprocess.cpp \
     src/z3attackwidget.cpp
 
 FORMS += \
+    src/demanglewidget.ui \
     src/dictionarybrutewidget.ui \
     src/invhashwidget.ui \
     src/kmpattackwidget.ui \
     src/mainwindow.ui \
-    src/symbollistwidget.ui \
     src/xortrickwidget.ui \
     src/z3attackwidget.ui
 
 HEADERS += \
+    src/demanglewidget.h \
     src/dictionarybruteprocess.h \
     src/dictionarybrutewidget.h \
     src/hashing.h \
     src/invhashwidget.h \
     src/kmpattackwidget.h \
     src/mainwindow.h \
-    src/symbollistmodel.h \
-    src/symbollistwidget.h \
+    src/nvidia_demangler.h \
     src/xortrickwidget.h \
     src/z3attackprocess.h \
     src/z3attackwidget.h

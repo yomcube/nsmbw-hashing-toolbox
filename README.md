@@ -6,7 +6,7 @@ This project provides a simple interface to aid in cracking the NSMBW symbols fr
 
 This project is still in development. Current status of the project:
 
-- 🚧 Symbol list from https://github.com/RootCubed/nsmbw-symbols
+- ✅ Demangler
 - ✅ Inverse hash function
 - ✅ XOR trick
 - ❌ KMP attack
