@@ -14,7 +14,8 @@ DictionaryBruteWidget::DictionaryBruteWidget(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->btnGo, &QPushButton::clicked, this, &DictionaryBruteWidget::beginBruteforce);
-    connect(ui->radUseDem, &QRadioButton::clicked, this, &DictionaryBruteWidget::setDemInputEnabledDisabled);
+    connect(ui->radUseDem, &QRadioButton::clicked, this, &DictionaryBruteWidget::setDemInput);
+    connect(ui->radUseCustom, &QRadioButton::clicked, this, &DictionaryBruteWidget::setCustomInput);
 }
 
 DictionaryBruteWidget::~DictionaryBruteWidget() {
@@ -26,23 +27,23 @@ DictionaryBruteWidget::~DictionaryBruteWidget() {
 
 void DictionaryBruteWidget::beginBruteforce() {
 
-    ui->prefixMang->setEnabled(false);
-    ui->suffixMang->setEnabled(false);
+    ui->prefixSym1->setEnabled(false);
+    ui->suffixSym1->setEnabled(false);
+    ui->prefixSym2->setEnabled(false);
+    ui->suffixSym2->setEnabled(false);
     ui->radUseDem->setEnabled(false);
-    ui->mangHash->setEnabled(false);
-    ui->demHash->setEnabled(false);
+    ui->radUseCustom->setEnabled(false);
     ui->btnGo->setEnabled(false);
-
-    uint32_t seedMang = Hashing::hash(ui->prefixMang->text(), 0x1505);
-    uint32_t goalMang = Hashing::inverse_hash(ui->mangHash->text().toUInt(nullptr, 16), ui->suffixMang->text());
 
     ui->results->setText("");
 
-    DictionaryBruteProcess *brute = new DictionaryBruteProcess(
-        seedMang, goalMang,
-        ui->radUseDem->isChecked(), ui->demHash->text().toUInt(nullptr, 16),
-        ui->prefixMang->text(), ui->suffixMang->text()
-    );
+    DictionaryBruteProcess *brute = new DictionaryBruteProcess();
+
+    brute->setGoalHashes(ui->hashSym1->text().toUInt(nullptr, 16), ui->hashSym2->text().toUInt(nullptr, 16));
+    brute->setKnownPartsForSymbol1(ui->prefixSym1->text(), ui->suffixSym1->text());
+    brute->setKnownPartsForSymbol2(ui->prefixSym2->text(), ui->suffixSym2->text());
+    brute->setUseDemangler(ui->radUseDem->isChecked());
+
     bruteforceThread = new QThread();
     brute->moveToThread(bruteforceThread);
     connect(bruteforceThread, &QThread::started, brute, &DictionaryBruteProcess::startBruteforce);
@@ -51,8 +52,14 @@ void DictionaryBruteWidget::beginBruteforce() {
     bruteforceThread->start();
 }
 
-void DictionaryBruteWidget::setDemInputEnabledDisabled(bool checked) {
-    ui->demHash->setEnabled(checked);
+void DictionaryBruteWidget::setDemInput() {
+    ui->prefixSym2->setEnabled(false);
+    ui->suffixSym2->setEnabled(false);
+}
+
+void DictionaryBruteWidget::setCustomInput() {
+    ui->prefixSym2->setEnabled(true);
+    ui->suffixSym2->setEnabled(true);
 }
 
 void DictionaryBruteWidget::updateProgress(int prog) {
@@ -72,11 +79,12 @@ void DictionaryBruteWidget::bruteforceEnded(QStringList res) {
 
     ui->progressBar->setValue(100.0);
 
-    ui->prefixMang->setEnabled(true);
-    ui->suffixMang->setEnabled(true);
+    ui->prefixSym1->setEnabled(true);
+    ui->suffixSym1->setEnabled(true);
+    ui->prefixSym2->setEnabled(ui->radUseCustom->isChecked());
+    ui->suffixSym2->setEnabled(ui->radUseCustom->isChecked());
     ui->radUseDem->setEnabled(true);
-    ui->mangHash->setEnabled(true);
-    ui->demHash->setEnabled(ui->radUseDem->isEnabled());
+    ui->radUseCustom->setEnabled(true);
     ui->btnGo->setEnabled(true);
 
     bruteforceThread->exit();

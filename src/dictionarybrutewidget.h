@@ -19,7 +19,8 @@ private slots:
     void beginBruteforce();
     void updateProgress(int prog);
     void bruteforceEnded(QStringList res);
-    void setDemInputEnabledDisabled(bool checked);
+    void setDemInput();
+    void setCustomInput();
 
 private:
     Ui::DictionaryBruteWidget *ui;

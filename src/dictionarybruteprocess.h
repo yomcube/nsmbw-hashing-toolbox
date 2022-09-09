@@ -7,7 +7,12 @@
 class DictionaryBruteProcess : public QObject {
     Q_OBJECT
 public:
-    DictionaryBruteProcess(uint32_t seedMang, uint32_t goalMang, bool useDem, uint32_t goalDem, QString prefix, QString suffix);
+    DictionaryBruteProcess();
+
+    void setGoalHashes(uint32_t h1, uint32_t h2);
+    void setKnownPartsForSymbol1(QString prefix, QString suffix);
+    void setKnownPartsForSymbol2(QString prefix, QString suffix);
+    void setUseDemangler(bool useDemangler);
 
 public slots:
     void startBruteforce();
@@ -18,12 +23,16 @@ signals:
 
 private:
     std::vector<std::string> wordList;
-    QString prefix;
-    QString suffix;
-    uint32_t seedMang;
-    uint32_t goalMang;
-    bool useDem;
-    uint32_t goalDem;
+
+    uint32_t goalH1;
+    uint32_t goalH2;
+
+    QString prefix1;
+    QString suffix1;
+    QString prefix2;
+    QString suffix2;
+
+    bool useDemangler = true;
 };
 
 #endif // DICTIONARYBRUTEPROCESS_H

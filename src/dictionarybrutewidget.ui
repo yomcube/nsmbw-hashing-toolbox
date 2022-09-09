@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>443</width>
-    <height>370</height>
+    <width>448</width>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,21 +30,34 @@
       <string>Symbol information</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="hashSym2"/>
+      </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="lblMangHash">
+       <widget class="QLabel" name="lblHash1">
         <property name="text">
-         <string>Mangled hash</string>
+         <string>Hash for symbol 1</string>
         </property>
        </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="lblHash2">
+        <property name="text">
+         <string>Hash for symbol 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="hashSym1"/>
       </item>
       <item row="0" column="0" colspan="2">
        <widget class="QGroupBox" name="gbMangled">
         <property name="title">
-         <string>Mangled symbol</string>
+         <string>Symbol 1</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="1" column="0">
-          <widget class="QLineEdit" name="prefixMang"/>
+          <widget class="QLineEdit" name="prefixSym1"/>
          </item>
          <item row="1" column="1">
           <widget class="QLabel" name="lblBFPlaceholder1">
@@ -64,7 +77,7 @@
           </widget>
          </item>
          <item row="1" column="2">
-          <widget class="QLineEdit" name="suffixMang"/>
+          <widget class="QLineEdit" name="suffixSym1"/>
          </item>
          <item row="0" column="2">
           <widget class="QLabel" name="lblSuffix1">
@@ -79,20 +92,74 @@
         </layout>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLineEdit" name="mangHash"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="demHash"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QRadioButton" name="radUseDem">
-        <property name="text">
-         <string>Demangled hash</string>
+      <item row="1" column="0" colspan="2">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Symbol 2</string>
         </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="2" column="2">
+          <widget class="QLabel" name="lblSuffix2">
+           <property name="text">
+            <string>Known suffix</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="radUseDem">
+           <property name="text">
+            <string>Demangle Symbol 1</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="lblPrefix2">
+           <property name="text">
+            <string>Known prefix</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QRadioButton" name="radUseCustom">
+           <property name="text">
+            <string>Custom configuration</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLabel" name="lblBFPlaceholder2">
+           <property name="text">
+            <string>&lt;Bruteforce value&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLineEdit" name="prefixSym2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="readOnly">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLineEdit" name="suffixSym2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
@@ -122,10 +189,10 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>prefixMang</tabstop>
-  <tabstop>suffixMang</tabstop>
-  <tabstop>mangHash</tabstop>
-  <tabstop>demHash</tabstop>
+  <tabstop>prefixSym1</tabstop>
+  <tabstop>suffixSym1</tabstop>
+  <tabstop>hashSym1</tabstop>
+  <tabstop>hashSym2</tabstop>
   <tabstop>results</tabstop>
  </tabstops>
  <resources/>
