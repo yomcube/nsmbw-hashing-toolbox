@@ -1,0 +1,48 @@
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download Z3
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: Z3Prover/z3
+          tag: z3-4.15.2
+          fileName: z3-4.15.2-x64-win.zip
+          extract: true
+      - name: Copy Z3
+        run: |
+          mkdir libs
+          Copy-Item -Recurse .\z3-4.15.2-x64-win .\libs\z3
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 5.15
+          cache: true
+          tools: 'tools_qtcreator'
+      - name: Get JOM
+        run: |
+          curl -o jom.zip https://qt.mirror.constant.com/official_releases/jom/jom.zip
+          7z x jom.zip -ojom
+      - name: Set up Visual Studio shell
+        uses: egor-tensin/vs-shell@v2
+        with:
+          arch: x64
+      - name: Build
+        run: |
+          qmake -r NSMBWHashToolbox.pro
+          jom/jom -j2
+          cd release
+          windeployqt --qmldir ..\src nsmbw_hash_toolbox.exe --pdb --release --compiler-runtime
+      - name: Prepare for upload
+        run: |
+          Remove-Item .\release\* -Include *.obj,*.cpp,*.h
+          Copy-Item .\libs\z3\bin\libz3.dll .\release\libz3.dll
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nsmbw-hashing-toolbox
+          path: release/
