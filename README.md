@@ -19,4 +19,4 @@ The build process has only been tested on Windows so far, but there shouldn't be
 
 First, download the z3 library from https://github.com/Z3Prover/z3/releases and place the z3 folder inside `/libs`.
 
-Build the project with qmake / Qt Creator.
+Build the project with qmake / Qt Creator. Requires Qt >=4, <6
