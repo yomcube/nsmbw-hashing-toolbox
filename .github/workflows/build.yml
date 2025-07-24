@@ -29,7 +29,6 @@ jobs:
       - name: Prepare for upload
         run: |
           Remove-Item .\release\* -Include *.obj,*.cpp,*.h
-          Copy-Item .\libs\z3\bin\libz3.dll .\release\libz3.dll
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
