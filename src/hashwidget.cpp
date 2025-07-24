@@ -20,7 +20,7 @@ HashWidget::~HashWidget()
 }
 
 void HashWidget::updateResult() {
-    QStringList strings = ui->strInput->toPlainText().split("\n");
+    QStringList strings = ui->inpStrs->toPlainText().split("\n");
     QString resStr = "";
     for (int i = 0; i < strings.size(); i++) {
         uint res = Hashing::hash(strings[i], 0x1505);
