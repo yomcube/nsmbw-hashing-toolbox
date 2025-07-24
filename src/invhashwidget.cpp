@@ -29,7 +29,7 @@ void InvHashWidget::updateResult() {
     while (i < hashes.size() && i < charsToUndo.size()) {
         uint hex = hashes[i].toUInt(nullptr, 16);
         uint res = Hashing::inverse_hash(hex, charsToUndo[i]);
-        resStr += "0x" + QString::number(res, 16) + "\n";
+        resStr += "0x" + QString::number(res, 16).rightJustified(8, '0') + "\n";
         i++;
     }
     ui->result->setPlainText(resStr);

@@ -24,7 +24,7 @@ void HashWidget::updateResult() {
     QString resStr = "";
     for (int i = 0; i < strings.size(); i++) {
         uint res = Hashing::hash(strings[i], 0x1505);
-        resStr += "0x" + QString::number(res, 16) + "\n";
+        resStr += "0x" + QString::number(res, 16).rightJustified(8, '0'); + "\n";
     }
     ui->outHashes->setPlainText(resStr);
 }
