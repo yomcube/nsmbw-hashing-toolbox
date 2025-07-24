@@ -22,8 +22,8 @@ HashWidget::~HashWidget()
 void HashWidget::updateResult() {
     QStringList strings = ui->strInput->toPlainText().split("\n");
     QString resStr = "";
-    for (int i = 0; i < hashes.size(); i++) {
-        uint res = Hashing::hash(strings[i]);
+    for (int i = 0; i < strings.size(); i++) {
+        uint res = Hashing::hash(strings[i], 0x1505);
         resStr += "0x" + QString::number(res, 16) + "\n";
     }
     ui->outHashes->setPlainText(resStr);
