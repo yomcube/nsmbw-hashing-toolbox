@@ -10,6 +10,7 @@ SOURCES += \
     src/dictionarybruteprocess.cpp \
     src/dictionarybrutewidget.cpp \
     src/hashing.cpp \
+    src/hashwidget.cpp \
     src/invhashwidget.cpp \
     src/kmpattackwidget.cpp \
     src/main.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 FORMS += \
     src/demanglewidget.ui \
     src/dictionarybrutewidget.ui \
+    src/hashwidget.ui \
     src/invhashwidget.ui \
     src/kmpattackwidget.ui \
     src/mainwindow.ui \
@@ -33,6 +35,7 @@ HEADERS += \
     src/dictionarybruteprocess.h \
     src/dictionarybrutewidget.h \
     src/hashing.h \
+    src/hashwidget.h \
     src/invhashwidget.h \
     src/kmpattackwidget.h \
     src/mainwindow.h \
