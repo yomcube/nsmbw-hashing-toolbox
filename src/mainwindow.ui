@@ -25,6 +25,11 @@
         <string>Demangler</string>
        </attribute>
       </widget>
+      <widget class="HashWidget" name="hashTab">
+       <attribute name="title">
+        <string>Hasher</string>
+       </attribute>
+      </widget>
       <widget class="InvHashWidget" name="invHashTab">
        <attribute name="title">
         <string>Inverse Hash</string>
