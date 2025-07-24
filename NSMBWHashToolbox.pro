@@ -15,6 +15,8 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/nvidia_demangler.cpp \
+    src/symbollistmodel.cpp \
+    src/symbollistwidget.cpp \
     src/xortrickwidget.cpp
 
 FORMS += \
@@ -23,6 +25,7 @@ FORMS += \
     src/hashwidget.ui \
     src/invhashwidget.ui \
     src/mainwindow.ui \
+    src/symbollistwidget.ui \
     src/xortrickwidget.ui
 
 HEADERS += \
@@ -34,6 +37,8 @@ HEADERS += \
     src/invhashwidget.h \
     src/mainwindow.h \
     src/nvidia_demangler.h \
+    src/symbollistmodel.h \
+    src/symbollistwidget.h \
     src/xortrickwidget.h
 
 RESOURCES += \
