@@ -46,19 +46,6 @@
         <string>XOR trick</string>
        </attribute>
       </widget>
-      <widget class="KMPAttackWidget" name="kmpAttackTab">
-       <attribute name="title">
-        <string>KMP attack</string>
-       </attribute>
-       <attribute name="toolTip">
-        <string>Known middle part attack</string>
-       </attribute>
-      </widget>
-      <widget class="Z3AttackWidget" name="z3AttackTab">
-       <attribute name="title">
-        <string>Z3 attack</string>
-       </attribute>
-      </widget>
       <widget class="DictionaryBruteWidget" name="dictBruteTab">
        <attribute name="title">
         <string>Dictionary brute force</string>
@@ -104,21 +91,9 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>KMPAttackWidget</class>
-   <extends>QWidget</extends>
-   <header>kmpattackwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>DictionaryBruteWidget</class>
    <extends>QWidget</extends>
    <header>dictionarybrutewidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>Z3AttackWidget</class>
-   <extends>QWidget</extends>
-   <header>z3attackwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

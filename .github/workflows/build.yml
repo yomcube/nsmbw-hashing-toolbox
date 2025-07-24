@@ -1,22 +1,11 @@
 on: [push, workflow_dispatch]
 
 jobs:
-  build:
+  build-win64:
     runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Download Z3
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: Z3Prover/z3
-          tag: z3-4.15.2
-          fileName: z3-4.15.2-x64-win.zip
-          extract: true
-      - name: Copy Z3
-        run: |
-          mkdir libs
-          Copy-Item -Recurse .\z3-4.15.2-x64-win .\libs\z3
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
@@ -44,5 +33,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: nsmbw-hashing-toolbox
+          name: nsmbw-hashing-toolbox_win64
           path: release/
