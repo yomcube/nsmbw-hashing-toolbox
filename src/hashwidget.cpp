@@ -23,10 +23,8 @@ void HashWidget::updateResult() {
     QStringList strings = ui->inpStrs->toPlainText().split("\n");
     QString resStr = "";
     for (int i = 0; i < strings.size(); i++) {
-        if (strings[i] != "") {
-            uint res = Hashing::hash(strings[i], 0x1505);
-            resStr += "0x" + QString::number(res, 16).rightJustified(8, '0'); + "\n";
-        }
+        uint res = Hashing::hash(strings[i], 0x1505);
+        resStr += "0x" + QString::number(res, 16).rightJustified(8, '0'); + "\n";
     }
     ui->outHashes->setPlainText(resStr);
 }
