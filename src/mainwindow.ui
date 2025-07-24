@@ -127,6 +127,12 @@
    <header>demanglewidget.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>HashWidget</class>
+   <extends>QWidget</extends>
+   <header>hashwidget.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>
