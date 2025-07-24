@@ -30,6 +30,11 @@
         <string>Hasher</string>
        </attribute>
       </widget>
+      <widget class="SymbolListWidget" name="symbolListTab">
+       <attribute name="title">
+        <string>Symbol List</string>
+       </attribute>
+      </widget>
       <widget class="InvHashWidget" name="invHashTab">
        <attribute name="title">
         <string>Inverse Hash</string>
@@ -107,6 +112,12 @@
    <extends>QWidget</extends>
    <header>hashwidget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+    <class>SymbolListWidget</class>
+    <extends>QWidget</extends>
+    <header>symbollistwidget.h</header>
+    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
